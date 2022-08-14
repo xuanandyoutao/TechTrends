@@ -2,7 +2,8 @@ name: TechTrends - Package with Docker
 
 on:
   push:
-    branches:[ master ]
+    branches:
+      - 'main'
 
 jobs:
   build:
@@ -27,8 +28,8 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v2
         with:
-          context: /project
+          context: .
           file: ./Dockerfile
           platforms: linux/amd64
-          push: ture
+          push: true
           tags: mixkyle/training:latest
